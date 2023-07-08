@@ -33,7 +33,7 @@ class MyModel: ObservableObject {
         let events: [DeviceActivityEvent.Name: DeviceActivityEvent] = [
             .encouraged: DeviceActivityEvent(
                 applications: selectionToDiscourage.applicationTokens,
-                threshold: DateComponents(minute: 5)
+                threshold: DateComponents(second: 10)
             )
         ]
         

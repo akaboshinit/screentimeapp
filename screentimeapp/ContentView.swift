@@ -7,11 +7,12 @@
 import SwiftUI
 import FamilyControls
 import ScreenTime
+import UserNotifications
 
 struct ContentView: View {
     @StateObject var model = MyModel.shared
     @State var isPresented = false
-    
+
     var body: some View {
         Button("requestAuthorization") {
             Task {
@@ -20,7 +21,7 @@ struct ContentView: View {
                 }catch{
                     print("await error for screentime is \(error)")
                 }
-                
+
                 _ = AuthorizationCenter.shared.$authorizationStatus
                     .sink() {_ in
                         switch AuthorizationCenter.shared.authorizationStatus {
